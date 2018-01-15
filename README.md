@@ -65,4 +65,32 @@ Your solution:
 
 ###### if we type in our console your function and next_binary_number([1,0,0,0,0,0,0,0,0,1]) then the result should look like 1,0,0,0,0,0,0,0,1,0 (or as an array).
 
+```javascript
+// largestBinaryChecker checks whether the binary being counted contains all
+// 1's (the largest count possible with n bits). If true, the result
+// is n length in zeros prepended with a 1.
+
+function next_binary_number(arr) {
+  let nextBinary = arr;
+  let largestBinaryChecker = true;
+  let startOfNewBinary = [1];
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    startOfNewBinary[i + 1] = 0;
+
+    if (largestBinaryChecker) {
+      if (arr[i] === 0) {
+        nextBinary[i] = 1;
+        largestBinaryChecker = false;
+      } else if (arr[i] === 1) {
+        nextBinary[i] = 0;
+      }
+    }
+  }
+  largestBinaryChecker
+    ? console.log(startOfNewBinary)
+    : console.log(nextBinary);
+}
+```
+
 ###### If you get invited to the first interview read the What to expect.md file.
