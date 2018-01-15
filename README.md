@@ -35,8 +35,14 @@ Your solution:
 ###### if we type in our console your function and reformat("liMeSHArp DeveLoper TEST") then the result should be Lmshrp dvlpr tst
 
 ```javascript
-function repeat(arr) {
-  console.log(arr.concat(arr, arr));
+function reformat(str) {
+  let reformatted = str
+    .replace(/[aeiou]/gi, "")
+    .toLowerCase()
+    .substr(1);
+  let firstLetter = str[0].toUpperCase();
+
+  console.log(firstLetter + reformatted);
 }
 ```
 
